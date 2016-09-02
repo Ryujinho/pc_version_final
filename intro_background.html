@@ -7,10 +7,7 @@
 				overflow: hidden; 	
     
 			}
-			canvas{
-				width: 100%;
-				height: 100%;
-			}
+		
 		</style>
 		<script src="js/three.min.js"></script>
 		
@@ -43,7 +40,7 @@
 
 			// creation of the sphere material
 			var sphereMaterial = new THREE.MeshBasicMaterial();
-			sphereMaterial.map = THREE.ImageUtils.loadTexture("img/intro_bg.jpg")   // -> 그림파일 고치는곳
+			sphereMaterial.map = THREE.ImageUtils.loadTexture("img/intro_bg.jpg")   // -> 그림파일 고치는곳 public 폴더에 파일 있음
 
 			// geometry + material = mesh (actual object)
 			var sphereMesh = new THREE.Mesh(sphere, sphereMaterial);
@@ -68,9 +65,9 @@
                     latitude = Math.max(-85, Math.min(85, latitude));
 
 				// moving the camera according to current latitude (vertical movement) and longitude (horizontal movement)
-				camera.target.x = 500 * Math.sin(THREE.Math.degToRad(90 - latitude)) * Math.cos(THREE.Math.degToRad(longitude));
-				camera.target.y = 500 * Math.cos(THREE.Math.degToRad(90 - latitude));
-				camera.target.z = 500 * Math.sin(THREE.Math.degToRad(90 - latitude)) * Math.sin(THREE.Math.degToRad(longitude));
+				camera.target.x = 430 * Math.sin(THREE.Math.degToRad(90 - latitude)) * Math.cos(THREE.Math.degToRad(longitude));
+				camera.target.y = 430 * Math.cos(THREE.Math.degToRad(90 - latitude));
+				camera.target.z = 430 * Math.sin(THREE.Math.degToRad(90 - latitude)) * Math.sin(THREE.Math.degToRad(longitude));
 				camera.lookAt(camera.target);
 
 				// calling again render function
@@ -83,7 +80,7 @@
 
 				event.preventDefault();
 
-				manualControl = true;
+				manualControl = false;
 
 				savedX = event.clientX;
 				savedY = event.clientY;
